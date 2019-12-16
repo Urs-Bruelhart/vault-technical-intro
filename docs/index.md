@@ -112,10 +112,7 @@ name: hashiCorp-vault-overview
   * You can also use Vault to generate dynamic short-lived credentials like cloud API keys and database creds.
 
 ???
-This is meant as a high level overview.  For detailed descriptions or instructions please see the docs, API guide, or learning site:
-* https://www.vaultproject.io/docs/
-* https://www.vaultproject.io/api/
-* https://learn.hashicorp.com/vault/
+How many of you are using Vault today? Let me give you a quick over view of Vault and how it works before we dive into the demo.
 
 ---
 name: the-old-way
