@@ -6,7 +6,7 @@ count: false
 .white[
 # Securing Cloud API Credentials with HashiCorp Vault
 
-<br><br><br><br><br><br><br><br><br><br>Sean Carolan - Technical Specialist
+<br><br><br><br><br><br><br><br><br><br>Sean Carolan - Technical Specialist<br>sean@hashicorp.com
 ]
 
 ???
@@ -107,8 +107,9 @@ name: hashiCorp-vault-overview
 ![:scale 10%](https://hashicorp.github.io/field-workshops-assets/assets/logos/logo_vault.png)
 
   * HashiCorp Vault is an API-driven, cloud agnostic secrets management system.
+  * Access and manage it with the web GUI, API or command line
   * It allows you to safely store and manage sensitive data in hybrid cloud environments.
-  * You can also use Vault to generate dynamic short-lived credentials, or encrypt application data on the fly.
+  * You can also use Vault to generate dynamic short-lived credentials like cloud API keys and database creds.
 
 ???
 This is meant as a high level overview.  For detailed descriptions or instructions please see the docs, API guide, or learning site:
@@ -138,14 +139,17 @@ This slide discusses the traditional security model
 ---
 name: problems-with-traditional-security-models
 # Problems with the Traditional Security Model
-* IP Address based rules
-* Hardcoded credentials with problems such as:
+* IP address and port based rules
+* Keep things separate with firewalls and VLANs
+* Hardcoded credentials create problems:
   * Shared service accounts for apps and users
   * Difficult to rotate, decommission, and determine who has access
-  * Revoking compromised credentials could break
+  * Revoking compromised credentials could unknowingly break things
 
 ???
 * This slide describes some of the problems with the traditional security model.
+* Who knew that Fred's credentials were hard-coded into the oroduction config file? Oops!
+
 ---
 name: the-new-way
 # Modern Secrets Management
@@ -157,6 +161,16 @@ name: the-new-way
 
 * And if you don't think the Nomadic way can be an effective security posture, think about this for a moment. The Mongol military tactics and organization enabled the Genghis Khan to conquer nearly all of continental Asia, the Middle East and parts of eastern Europe. Mongol warriors would typically bring three or four horses with them, so they could rotate through the horses and go farther. Mongol army units could move up to 100 miles a day, which was unheard of in the 13th century. They were faster, more adaptable, and more resilient than all their enemies.
 
+And that is how people who live in these... (reverse back)
+
+were able to conquer hundreds and hundreds of these.
+
+To review - modern security should be:
+Dynamic, fast, temporary
+
+The old way is:
+Slow, heavy, hard to change
+
 ---
 name: identity-based-security-1
 #Identity Based Security
@@ -165,8 +179,14 @@ name: identity-based-security-1
 ]
 
 ???
+Did any of you fly in from out of town? Welcome to Austin...try the breakfast tacos.
+
+Let me ask you a question, what was the first thing they asked you for when you went to check into your hotel?  That's right, and ID and a credit card. You need to *identify* yourself so you can be matched with your reservation *policy*, which grants you *access* to some parts of the hotel for a limited time. All of that ends up on a key card *token* which you can use to move around the hotel, enter and exit, and access different features.
+
+This basic analogy illustrates how Vault works.
+
 * Here we see that Vault has multiple means of authenticating users and applications with its Auth Methods.
-* Vault can manage many types of secrets and excels at generating short-lived, dynmamic secrets.
+* Vault can manage many types of secrets and excels at generating short-lived, dynamic secrets.
 * Vault's ACL policies are associated with tokens that users and applications use to access secrets after authenticating.
 * Tokens can only read/write secrets that its policies allow.
 * Click on the link to read a white paper about identity-based security in low trust networks.
@@ -178,7 +198,7 @@ name: identity-based-security-2
 Vault was designed to address the security needs of modern applications.  It differs from the traditional approach by using:
 
 * Identity based rules allowing security to stretch across network perimeters
-* Dynamic, short lived credentials that are rotated frequently
+* Dynamic, short lived credentials that can be generated on demand
 * Individual accounts to maintain provenance (tie action back to entity)
 * Credentials and Entities that can easily be invalidated
 
