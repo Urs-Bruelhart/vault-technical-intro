@@ -24,7 +24,7 @@ name: Retro
 class: center,middle
 
 .center[
-![:scale 60%](images/c64.jpg)
+![:scale 70%](images/c64.jpg)
 <br><sub>Sean at the Seattle Computer Museum</sub>
 ]
 
@@ -37,6 +37,23 @@ Password Rotation!  Woooo!  Who's with me?  No...nobody?  Why isn't anyone excit
 
 Let's be honest, nobody came to this talk because they like changing passwords. I'll give you an example...(Advance to Next slide)
 
+---
+name: aws-console
+class: center,middle
+
+.center[
+![:scale 80%](images/aws_console.png)
+<br><sub>How to turn your cloud account...</sub>
+]
+
+---
+name: bitcoin-farm-simulator
+class: center,middle
+
+.center[
+![:scale 85%](images/bitcoin_farm.png)
+<br><sub>...into a cryptocurrency farm in three easy steps!</sub>
+]
 
 ---
 name: hashiCorp-vault-overview
