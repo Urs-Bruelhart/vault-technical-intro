@@ -155,7 +155,7 @@ name: the-new-way
 .center[No well defined perimeter; security enforced by identity.]
 
 ???
-Speaking of dynamic environments...here's an alternative model to the castle and moat approach. These are Mongolian Yurts or "Ger" as they are called locally. Instead of a castle with walls and a drawbridge, a fixed fortress that has an inside and an outside, these people move from place to place, bringing their houses with them. Over the next ninety years they were able to conquer almost all of Asia, parts of the middle east and southern europe. It was the largest contiguous land empire in human history.
+Speaking of dynamic environments...here's an alternative model to the castle and moat approach. These are Mongolian Yurts or "Ger" as they are called locally. Instead of a castle with walls and a drawbridge, a fixed fortress that has an inside and an outside, these people move from place to place, bringing their houses with them. Over a period of about ninety years the ancestors of these folks were able to conquer almost all of Asia, parts of the middle east and southern europe. It was the largest contiguous land empire in human history.
 
 How was it even possible that for nomadic warriors living in tents to pull this off? The Mongolian empire employed some very dynamic tactics. Every time they would conquer an enemy, they brought all of their senior engineers into the fold and incorporated their knowledge. Each warrior would be in charge of up to five horses, so they could ride up to 100+ miles in a single day.
 
