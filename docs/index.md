@@ -121,7 +121,7 @@ name: the-old-way
 .center[Also known as the "Castle and Moat" method.]
 
 ???
-* This picture shows the traditional castle and moat security model.
+Four walls, a moat, a drawbridge. Kind of a like a data center right? A big heavy building with good physical security and highly controlled ingress and egress points. Hard on the outside, squishy and soft on the inside.
 
 ---
 name: traditional-security-models
@@ -131,7 +131,7 @@ name: traditional-security-models
 * Resources such as databases were mostly static.  As such rules were based upon IP address, credentials were baked into source code or kept in a static file on disk.
 
 ???
-This slide discusses the traditional security model
+Why is this no longer effective?
 
 ---
 name: problems-with-traditional-security-models
@@ -146,6 +146,7 @@ name: problems-with-traditional-security-models
 ???
 * This slide describes some of the problems with the traditional security model.
 * Who knew that Fred's credentials were hard-coded into the oroduction config file? Oops!
+* This security posture does *not* work well in dynamic environments that change a lot
 
 ---
 name: the-new-way
@@ -154,19 +155,13 @@ name: the-new-way
 .center[No well defined perimeter; security enforced by identity.]
 
 ???
-* These are Mongolian Yurts or "Ger" as they are called locally. Instead of a castle with walls and a drawbridge, a fixed fortress that has an inside and an outside, these people move from place to place, bringing their houses with them.
+Speaking of dynamic environments...here's an alternative model to the castle and moat approach. These are Mongolian Yurts or "Ger" as they are called locally. Instead of a castle with walls and a drawbridge, a fixed fortress that has an inside and an outside, these people move from place to place, bringing their houses with them. Over the next ninety years they were able to conquer almost all of Asia, parts of the middle east and southern europe. It was the largest contiguous land empire in human history.
 
-* And if you don't think the Nomadic way can be an effective security posture, think about this for a moment. The Mongol military tactics and organization enabled the Genghis Khan to conquer nearly all of continental Asia, the Middle East and parts of eastern Europe. Mongol warriors would typically bring three or four horses with them, so they could rotate through the horses and go farther. Mongol army units could move up to 100 miles a day, which was unheard of in the 13th century. They were faster, more adaptable, and more resilient than all their enemies.
+How was it even possible that for nomadic warriors living in tents to pull this off? The Mongolian empire employed some very dynamic tactics. Every time they would conquer an enemy, they brought all of their senior engineers into the fold and incorporated their knowledge. Each warrior would be in charge of up to five horses, so they could ride up to 100+ miles in a single day.
 
-And that is how people who live in these... (reverse back)
+Instead of breaking down a siege engine or catapult and carrying it around, they would simply build them on site from the materials at hand. And that is how people who lived in these...were able to conquer hundreds and thousands of these.
 
-were able to conquer hundreds and hundreds of these.
-
-To review - modern security should be:
-Dynamic, fast, temporary
-
-The old way is:
-Slow, heavy, hard to change
+And so your security posture should be dynamic, fast, temporary and adaptable, instead of slow, heavy, hard to change. It's not a perfect analogy but might help you explain this to your non-technical friends.
 
 ---
 name: identity-based-security-1
@@ -181,12 +176,6 @@ Did any of you fly in from out of town? Welcome to Austin...try the breakfast ta
 Let me ask you a question, what was the first thing they asked you for when you went to check into your hotel?  That's right, and ID and a credit card. You need to *identify* yourself so you can be matched with your reservation *policy*, which grants you *access* to some parts of the hotel for a limited time. All of that ends up on a key card *token* which you can use to move around the hotel, enter and exit, and access different features.
 
 This basic analogy illustrates how Vault works.
-
-* Here we see that Vault has multiple means of authenticating users and applications with its Auth Methods.
-* Vault can manage many types of secrets and excels at generating short-lived, dynamic secrets.
-* Vault's ACL policies are associated with tokens that users and applications use to access secrets after authenticating.
-* Tokens can only read/write secrets that its policies allow.
-* Click on the link to read a white paper about identity-based security in low trust networks.
 
 ---
 name: identity-based-security-2
@@ -222,7 +211,6 @@ name: vault-reference-architecture-1
 
 ???
 * Click the link to learn more about the internal's of Vault's architecture.
-
 
 ---
 name: vault-reference-architecture-2
