@@ -25,11 +25,11 @@ class: center,middle
 
 .center[
 ![:scale 70%](images/c64.jpg)
-<br><sub>Sean at the Seattle Computer Museum</sub>
+<br><sub>Sean at the Seattle Living Computer Museum</sub>
 ]
 
 ???
-I like to play a little game called "Back in my day..." Do you like that game? This is a back in my day moment except it happened in the Seattle Computer Museum. My first computer was a Commodore 64 and am old enough to remember when floppy disks were actually floppy. My first security gig was cracking copy protection on floppy disks so my friends and I could share our games.
+I like to play a little game called "Back in my day..." Do you like that game? This is a back in my day moment except it happened in the Seattle Living Computer Museum. My first computer was a Commodore 64 and am old enough to remember when floppy disks were actually floppy. My first security gig was cracking copy protection on floppy disks so my friends and I could share our games.
 
 It turned into this game of cat an mouse, where the game publishers would make you do things like type in a word from page 42 of the manual before you could load the game. So our workaround was to go into dad's office and borrow the photocopier.
 
