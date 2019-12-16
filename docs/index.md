@@ -69,7 +69,7 @@ And in case you're curious the lead role in this story is played by yours truly.
 
 Once upon a time there was a solutions engineer who wanted to build a terraform demo. Our hero needed some code.
 
-And what do we do when we need code?
+And what do sysadmins do when we need code?
 
 We go to stack overflow and we copy it!
 
