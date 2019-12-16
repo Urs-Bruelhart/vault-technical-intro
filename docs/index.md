@@ -3,14 +3,14 @@ class: title, shelf, no-footer
 background-image: url(https://hashicorp.github.io/field-workshops-assets/assets/bkgs/HashiCorp-Title-bkg.jpeg)
 count: false
 
-.white[ 
+.white[
 # Securing Cloud API Credentials with HashiCorp Vault
 
 <br><br><br><br><br><br><br><br><br><br>Sean Carolan - Technical Specialist
 ]
 
 ???
-Chapter 1 introduces Vault
+Hi, I'm Sean and I'm a recovering sysadmin.
 
 ---
 layout: true
@@ -20,7 +20,7 @@ layout: true
 ]
 
 ---
-name: Retro
+name: back-in-my-day
 class: center,middle
 
 .center[
@@ -29,13 +29,17 @@ class: center,middle
 ]
 
 ???
-My name is Sean Carolan and I'm a Solutions Engineer with HashiCorp. I like building things. In my past life I was a Linux system administrator, now I travel and help users get started with Infrastructure as Code. My first computer was a Commodore 64. 
+I like to play a little game called "Back in my day..." Do you like that game? This is a back in my day moment except it happened in the Seattle Computer Museum. My first computer was a Commodore 64 and am old enough to remember when floppy disks were actually floppy. My first security gig was cracking copy protection on floppy disks so my friends and I could share our games.
 
-This photo was taken a few years ago at the Living Computer Museum. If you are ever in Seattle, you owe it to yourself to make a pilgrimage to this place. There's nothing that makes you feel old like seeing your childhood toy in a museum. Elliot and I are playing Oregon Trail on an Apple IIe.
+It turned into this game of cat an mouse, where the game publishers would make you do things like type in a word from page 42 of the manual before you could load the game. So our workaround was to go into dad's office and borrow the photocopier.
 
-Password Rotation!  Woooo!  Who's with me?  No...nobody?  Why isn't anyone excited?  Are you sure you don't want to go hear about Terraform 0.12?  Ok, you're stuck with me!
+Remember kids: Don't copy that floppy!
 
-Let's be honest, nobody came to this talk because they like changing passwords. I'll give you an example...(Advance to Next slide)
+We can play some more "Back in my day..." at happy hour if you like. I love hearing devops war stories.
+
+These days I'm no longer a sysadmin. I handed in the on-call pager and left the cubicle to travel around and talk about infrastructure and security.
+
+Today we'll be talking about dynamic cloud credentials with HashiCorp Vault. Disclaimer - I am a HashiCorp employee, but this is not a sales pitch. Everything you'll see in this talk is built with open source software.
 
 ---
 name: aws-console
@@ -46,6 +50,9 @@ class: center,middle
 <br><sub>How to turn your cloud account...</sub>
 ]
 
+???
+But before we talk about Vault let me share a story with you. The story is called "The Boy Who Accidentally Copied His AWS Keys to GitHub".
+
 ---
 name: bitcoin-farm-simulator
 class: center,middle
@@ -54,6 +61,45 @@ class: center,middle
 ![:scale 85%](images/bitcoin_farm.png)
 <br><sub>...into a cryptocurrency farm in three easy steps!</sub>
 ]
+
+???
+Also known as "How to turn your cloud account into a cryptocurrency farm in 3 easy steps."
+
+And in case you're curious the lead role in this story is played by yours truly.
+
+Once upon a time there was a solutions engineer who wanted to build a terraform demo. Our hero needed some code.
+
+And what do we do when we need code?
+
+We go to stack overflow and we copy it!
+
+I had a copy of my old Terraform tutorial in another repo. And I had dutifully put a .gitignore file into my repository so that my credentials file would not be copied to the remote repo. I used my handy `cp -r` command to copy everything in that repo, into a new repo where I could build my demo.
+
+Guess which file didn't get copied into the new repository? That's right, that single hidden .gitignore file that was the only thing protecting the credentials was gone. The safety switch on the footgun was set to OFF.
+
+And so the stage was set. You can probably guess what happened next.
+
+git add...git commit...git push...
+
+Hey, how come I can't log onto the AWS console anymore?
+
+Oh gosh the API isn't working either. I wonder if AWS is having an outage?
+
+Oh wait, nobody else can get into our account either...
+
+And then that sinking feeling sets in. I'll spare you the details, but the short version is that a bot picked up those credentials and within two minutes had repurposed the entire AWS account into a massive cryptocurrency farm. Actually I wasn't even mad. It was amazing.
+
+The first thing the attacker did was create themselves a new admin account with a very generic looking name. Next they disabled all the other admin accounts to lock everyone else out. And then systematically began spinning up the maximum number of ec2 instances of each size, in every single region. Oh, and every one of those instances had termination protection turned on.
+
+Fortunately our security and operations folks were able to quickly close access to the account and shut down all the instances, but not before they'd run up a $20,000 bill in less than an hour.
+
+Cloud API credentials are powerful. If your cloud account were a data center, these admin level API keys are like a skeleton key that can open the front door, every server cabinet, and every single server. And also this magic key lets you order hundreds more servers and have them delivered and turned on instantly.
+
+Now every time I see AWS keys in plain text I have a mini panic attack. Turns out I'm not alone. Thousands of API keys are accidentally pushed to github every single day.
+
+How can we better manage these credentials and reduce the amount of risk in our cloud environments?
+
+One way to manage API credentials is with HashiCorp Vault.
 
 ---
 name: hashiCorp-vault-overview
